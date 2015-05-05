@@ -1,0 +1,22 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'uninstall', 'express-jwt' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose node symlink /usr/bin/node
+5 verbose node_modules/express-jwt unbuild
+6 error Error: EACCES, unlink '/home/adam/dev/BasketballGames/node_modules/express-jwt/node_modules/jsonwebtoken/node_modules/jws/node_modules/.bin/base64url'
+6 error  { [Error: EACCES, unlink '/home/adam/dev/BasketballGames/node_modules/express-jwt/node_modules/jsonwebtoken/node_modules/jws/node_modules/.bin/base64url']
+6 error   errno: 3,
+6 error   code: 'EACCES',
+6 error   path: '/home/adam/dev/BasketballGames/node_modules/express-jwt/node_modules/jsonwebtoken/node_modules/jws/node_modules/.bin/base64url' }
+7 error Please try running this command again as root/Administrator.
+8 error System Linux 3.13.0-24-generic
+9 error command "/usr/bin/node" "/usr/bin/npm" "uninstall" "express-jwt"
+10 error cwd /home/adam/dev/BasketballGames
+11 error node -v v0.10.32
+12 error npm -v 1.4.28
+13 error path /home/adam/dev/BasketballGames/node_modules/express-jwt/node_modules/jsonwebtoken/node_modules/jws/node_modules/.bin/base64url
+14 error code EACCES
+15 error errno 3
+16 error stack Error: EACCES, unlink '/home/adam/dev/BasketballGames/node_modules/express-jwt/node_modules/jsonwebtoken/node_modules/jws/node_modules/.bin/base64url'
+17 verbose exit [ 3, true ]
