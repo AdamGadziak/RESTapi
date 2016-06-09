@@ -1,9 +1,8 @@
 "use strict";
 
 module.exports = {
-  players: require('./players'),
-  teams: require('./teams'),
+  users: require('./users'),
   games: require('./games'),
-  conferences: require('./conferences'),
+  cities: require('./cities'),
   courts: require('./courts')
 };

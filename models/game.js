@@ -1,6 +1,5 @@
 "use strict";
 var mongoose = require('mongoose');
-
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 
@@ -10,32 +9,23 @@ var Game = new Schema({
     default: Date.now,
     required: true
   },
-  home: {
-    type: ObjectId,
-    required: true,
-    ref: 'Team'
-  },
-  away: {
-    type: ObjectId,
-    required: true,
-    ref: 'Team'
-  },
-  homeScore: {
+  slots: {
     type: Number,
-    default: 0,
-    min: 0,
-    max: 200
+    required: true
   },
-  awayScore: {
+  freeSlots: {
     type: Number,
-    default: 0,
-    min: 0,
-    max: 200
+    required: true
   },
   court: {
     type: ObjectId,
     required: true,
     ref: 'Court'
+  },
+  city: {
+    type:ObjectId,
+    required: true,
+    ref: 'City'
   }
 });
 

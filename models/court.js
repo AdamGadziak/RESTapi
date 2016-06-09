@@ -16,14 +16,19 @@ var Court = new Schema({
     'Name should be longer'
     ]
   },
+  thumbnail: {
+    type:String,
+    trim: true
+  },
+  games: [{
+    type: ObjectId,
+    ref: 'Game',
+    trim: true
+  }],
   city: {
-    type: String,
-    required: true,
-    validate: [ function(name) {
-      return name.length >=3; 
-    },
-    'City should be longer'
-    ]
+    type: ObjectId,
+    ref: 'City',
+    trim: true
   }
 });
 
