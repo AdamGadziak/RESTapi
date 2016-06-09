@@ -12,7 +12,11 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
+app.use(function(req,res,next){
+	res.header('Access-Control-Origin','*');
+	res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
+	next();
+})
 
 var City = require('./models/city');
 var Court = require('./models/court');
@@ -77,7 +81,7 @@ app.use(function(req, res) {
      res.status(500).send('Internal server problem');
   });
 //Let's start our server
-var port = process.env.PORT || 3333;
+var port = Number(process.env.PORT || 3333);
 app.listen(port);
 console.log(port + ' where amazing happens');
 console.log(' check htttp://localhost:' + port + '/api/v1');
