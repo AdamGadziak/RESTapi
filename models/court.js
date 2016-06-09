@@ -23,12 +23,14 @@ var Court = new Schema({
   games: [{
     type: ObjectId,
     ref: 'Game',
-    trim: true
+    trim: true,
+    required: false
   }],
   city: {
     type: ObjectId,
     ref: 'City',
-    trim: true
+    trim: true,
+    required: false
   }
 });
 

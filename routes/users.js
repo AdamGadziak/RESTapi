@@ -25,9 +25,9 @@ exports.show = function(req, res) {
 //POST PLAYER
 exports.create = function(req, res) {
 	var user = new User(req.body);
-
     user.save(function(err) {
 			if (err){
+                console.log(req);
                 console.log(err);
 				return res.status(422).send({ errpr: ['Invalid data input!!!']});
 			}

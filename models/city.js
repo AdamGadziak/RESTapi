@@ -11,17 +11,20 @@ var City = new mongoose.Schema({
   games: [{
  	type: ObjectId,
  	ref: 'Game',
- 	trim: true
+ 	trim: true,
+    required: false
   }],
   courts: [{
  	type: ObjectId,
  	ref: 'Court',
- 	trim: true
+ 	trim: true,
+    required: false
   }],
   users: [{
  	type: ObjectId,
  	ref: 'User',
- 	trim: true
+ 	trim: true,
+    required: false
   }]
 });
 

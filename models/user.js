@@ -11,7 +11,8 @@ var User = new Schema({
   city: {
     type:ObjectId,
     required: true,
-    ref: 'City'
+    ref: 'City',
+    required: false
   },
   password: {
     type:String,
