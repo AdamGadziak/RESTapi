@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 
 app.use(function(req,res,next){
 	res.header('Access-Control-Origin','*');
+	res.header('Access-Control-Allow-Origin', '*');
 	res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
 	next();
 })
@@ -64,9 +65,9 @@ app.get(base + '/courts/:court_id', routes.courts.show);
 
 app.get(base + '/cities', routes.cities.showall);
 app.post(base + '/cities', routes.cities.create);
-app.put(base + '/cities/:city', routes.cities.update);
-app.delete(base + '/cities/:city', routes.cities.destroy);
-app.get(base + '/cities/:y_id', routes.cities.show);
+app.put(base + '/cities/:city_id', routes.cities.update);
+app.delete(base + '/cities/:city_id', routes.cities.destroy);
+app.get(base + '/cities/:city_id', routes.cities.show);
 
 // app.get(base + '/conferences', routes.conferences.showall);
 // //app.post(base + '/conferences', routes.conferences.create);
