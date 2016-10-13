@@ -2,7 +2,8 @@ var mongoose = require('mongoose'),
     City = mongoose.model('City');
 //GET ALL CONFERENCES
 exports.showall = function(req, res, next) {
-  City.find(function(err, cities) {
+  var query = req.query;
+  City.find(query, function(err, cities) {
       // if there is an error retrieving, send the error. nothing after res.send(err) will execute
       if (err){
                 console.log(err);

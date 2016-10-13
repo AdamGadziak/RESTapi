@@ -2,13 +2,18 @@ var mongoose = require('mongoose'),
     Court = mongoose.model('Court');
 //GET ALL COURTS
 exports.showall = function(req, res, next) {
-  Court.find(function(err, courts) {
+  var query = {};
+  if (req.query.city) {
+    query.city = req.query.city;
+  }
+  console.log(query);
+  Court.find(query, function(err, courts) {
       // if there is an error retrieving, send the error. nothing after res.send(err) will execute
       if (err){
                 console.log(err);
         return res.status(404).send({ errors: ['Courts not found'] });
       }
-      res.json(courts); // return all pandas in JSON format
+      res.json(courts);
     });
 };
 //GET COURT BY ID

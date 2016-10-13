@@ -25,7 +25,6 @@ var Game = require('./models/game');
 var User = require('./models/user');
 var routes = require('./routes/api');
 
-
 //testing our router
 app.get('/', function(req, res){
 	res.json({ message: 'Welcome to amazing SportRadar api! type /api/v1 and check what is waiting for You'});
@@ -33,7 +32,6 @@ app.get('/', function(req, res){
 app.get('/api/v1', function(req, res){
 	res.json({ message: 'You can query by City Court Game or User'});
 });
-
 
 //Routes
 
@@ -44,12 +42,6 @@ app.post(base + '/users', routes.users.create);
 app.put(base + '/users/:user_id', routes.users.update);
 app.delete(base + '/users/:user_id', routes.users.destroy);
 app.get(base + '/users/:user_id', routes.users.show);
-
-// app.get(base + '/teams', routes.teams.showall);
-// app.post(base + '/teams', routes.teams.create);
-// app.put(base + '/teams/:team_id', routes.teams.update);
-// app.delete(base + '/teams/:team_id', routes.teams.destroy);
-// app.get(base + '/teams/:team_id', routes.teams.show);
 
 app.get(base + '/games', routes.games.showall);
 app.post(base + '/games', routes.games.create);
@@ -68,12 +60,6 @@ app.post(base + '/cities', routes.cities.create);
 app.put(base + '/cities/:city_id', routes.cities.update);
 app.delete(base + '/cities/:city_id', routes.cities.destroy);
 app.get(base + '/cities/:city_id', routes.cities.show);
-
-// app.get(base + '/conferences', routes.conferences.showall);
-// //app.post(base + '/conferences', routes.conferences.create);
-// app.put(base + '/conferences/:conference_id', routes.conferences.update);
-// //app.delete(base + '/conferences/:conference_id', routes.conferences.destroy);
-// app.get(base + '/conferences/:conference_id', routes.conferences.show);
 
 app.use(function(req, res) {
      res.status(404).send('404: Page not Found');
