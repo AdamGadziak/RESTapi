@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
     Game = mongoose.model('Game');
 //GET ALL GAMES
 exports.showall = function(req, res, next) {
-  Game.find(function(err, games) {
+  Game.find().populate('city court').exec(function(err, games) {
       // if there is an error retrieving, send the error. nothing after res.send(err) will execute
       if (err){
                 console.log(err);
@@ -13,7 +13,7 @@ exports.showall = function(req, res, next) {
 };
 //GET GAME BY ID
 exports.show = function(req, res) {
-    Game.findById(req.params.game_id).populate('home away court').exec(function(err, game) {
+    Game.findById(req.params.game_id).populate('city court').exec(function(err, game) {
             if (err){
                 console.log(err);
                 return res.status(404).send({ errors: ['Couldn\' find game with this id'] });
