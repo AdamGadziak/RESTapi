@@ -35,9 +35,14 @@ var welcomeMsg = {
 var entriesLinks = {
 	links: [{
 		games: 'http://localhost:' + port + '/api/v1/games',
+		game: 'http://localhost:' + port + '/api/v1/games/:id',
 		courts: 'http://localhost:' + port + '/api/v1/courts',
+		court: 'http://localhost:' + port + '/api/v1/courts/:id',
 		users: 'http://localhost:' + port + '/api/v1/users',
-		cities: 'http://localhost:' + port + '/api/v1/cities'
+		user: 'http://localhost:' + port + '/api/v1/users/:id',
+		cities: 'http://localhost:' + port + '/api/v1/cities',
+		city: 'http://localhost:' + port + '/api/v1/cities/:id'
+
 	}]
 }
 app.get('/', function(req, res){
