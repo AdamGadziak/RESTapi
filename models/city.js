@@ -9,21 +9,21 @@ var City = new mongoose.Schema({
   	required: true
   },
   games: [{
- 	type: ObjectId,
- 	ref: 'Game',
- 	trim: true,
+   	type: ObjectId,
+   	ref: 'Game',
+   	trim: true,
     required: false
   }],
   courts: [{
- 	type: ObjectId,
- 	ref: 'Court',
- 	trim: true,
+   	type: ObjectId,
+   	ref: 'Court',
+   	trim: true,
     required: false
   }],
   users: [{
- 	type: ObjectId,
- 	ref: 'User',
- 	trim: true,
+   	type: ObjectId,
+   	ref: 'User',
+   	trim: true,
     required: false
   }]
 });

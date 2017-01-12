@@ -4,6 +4,8 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var app = express();
 
+var port = Number(process.env.PORT || 3333);
+
 mongoose.connect('mongodb://adam:rest@proximus.modulusmongo.net:27017/u8veMipa');
 app.use(morgan('dev'));
 
@@ -26,11 +28,23 @@ var User = require('./models/user');
 var routes = require('./routes/api');
 
 //testing our router
+var welcomeMsg = {
+	message: 'Welcome to amazing SportRadar api!',
+	link: 'http://localhost:' + port + '/api/v1'
+}
+var entriesLinks = {
+	links: [{
+		games: 'http://localhost:' + port + '/api/v1/games',
+		courts: 'http://localhost:' + port + '/api/v1/courts',
+		users: 'http://localhost:' + port + '/api/v1/users',
+		cities: 'http://localhost:' + port + '/api/v1/cities'
+	}]
+}
 app.get('/', function(req, res){
-	res.json({ message: 'Welcome to amazing SportRadar api! type /api/v1 and check what is waiting for You'});
+	res.json(welcomeMsg);
 });
 app.get('/api/v1', function(req, res){
-	res.json({ message: 'You can query by City Court Game or User'});
+	res.json(entriesLinks);
 });
 
 //Routes
@@ -68,7 +82,6 @@ app.use(function(req, res) {
      res.status(500).send('Internal server problem');
   });
 //Let's start our server
-var port = Number(process.env.PORT || 3333);
 app.listen(port);
 console.log(port + ' where amazing happens');
 console.log(' check htttp://localhost:' + port + '/api/v1');
