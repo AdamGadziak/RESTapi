@@ -1,22 +1,27 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'uninstall', 'express-jwt' ]
-2 info using npm@1.4.28
-3 info using node@v0.10.32
-4 verbose node symlink /usr/bin/node
-5 verbose node_modules/express-jwt unbuild
-6 error Error: EACCES, unlink '/home/adam/dev/BasketballGames/node_modules/express-jwt/node_modules/jsonwebtoken/node_modules/jws/node_modules/.bin/base64url'
-6 error  { [Error: EACCES, unlink '/home/adam/dev/BasketballGames/node_modules/express-jwt/node_modules/jsonwebtoken/node_modules/jws/node_modules/.bin/base64url']
-6 error   errno: 3,
-6 error   code: 'EACCES',
-6 error   path: '/home/adam/dev/BasketballGames/node_modules/express-jwt/node_modules/jsonwebtoken/node_modules/jws/node_modules/.bin/base64url' }
-7 error Please try running this command again as root/Administrator.
-8 error System Linux 3.13.0-24-generic
-9 error command "/usr/bin/node" "/usr/bin/npm" "uninstall" "express-jwt"
-10 error cwd /home/adam/dev/BasketballGames
-11 error node -v v0.10.32
-12 error npm -v 1.4.28
-13 error path /home/adam/dev/BasketballGames/node_modules/express-jwt/node_modules/jsonwebtoken/node_modules/jws/node_modules/.bin/base64url
-14 error code EACCES
-15 error errno 3
-16 error stack Error: EACCES, unlink '/home/adam/dev/BasketballGames/node_modules/express-jwt/node_modules/jsonwebtoken/node_modules/jws/node_modules/.bin/base64url'
-17 verbose exit [ 3, true ]
+1 verbose cli [ '/home/adam/.nvm/versions/node/v5.10.1/bin/node',
+1 verbose cli   '/home/adam/.nvm/versions/node/v5.10.1/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'build' ]
+2 info using npm@3.8.3
+3 info using node@v5.10.1
+4 verbose stack Error: missing script: build
+4 verbose stack     at run (/home/adam/.nvm/versions/node/v5.10.1/lib/node_modules/npm/lib/run-script.js:147:19)
+4 verbose stack     at /home/adam/.nvm/versions/node/v5.10.1/lib/node_modules/npm/lib/run-script.js:57:5
+4 verbose stack     at /home/adam/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/read-package-json/read-json.js:345:5
+4 verbose stack     at checkBinReferences_ (/home/adam/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/read-package-json/read-json.js:309:45)
+4 verbose stack     at final (/home/adam/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/read-package-json/read-json.js:343:3)
+4 verbose stack     at then (/home/adam/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/read-package-json/read-json.js:113:5)
+4 verbose stack     at /home/adam/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/read-package-json/read-json.js:300:12
+4 verbose stack     at /home/adam/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:78:16
+4 verbose stack     at tryToString (fs.js:414:3)
+4 verbose stack     at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:401:12)
+5 verbose cwd /home/adam/dev/uam/sportRadar/RESTapi
+6 error Linux 4.4.0-46-generic
+7 error argv "/home/adam/.nvm/versions/node/v5.10.1/bin/node" "/home/adam/.nvm/versions/node/v5.10.1/bin/npm" "run" "build"
+8 error node v5.10.1
+9 error npm  v3.8.3
+10 error missing script: build
+11 error If you need help, you may report this error at:
+11 error     <https://github.com/npm/npm/issues>
+12 verbose exit [ 1, true ]
