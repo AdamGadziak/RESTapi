@@ -70,7 +70,7 @@ var base = '/api/v1';
 
 app.get(base + '/games', routes.games.showall);
 app.post(base + '/games', routes.games.create);
-app.options(base + '/games', function(req,res,next){next();});
+// app.options(base + '/games', function(req,res,next){});
 
 // app.put(base + '/games/:game_id', routes.games.update);
 // app.delete(base + '/games/:game_id', routes.games.destroy);
