@@ -38,11 +38,11 @@ var entriesLinks = {
 		games: 'http://localhost:' + port + '/api/v1/games',
 		game: 'http://localhost:' + port + '/api/v1/games/:id',
 		courts: 'http://localhost:' + port + '/api/v1/courts',
-		court: 'http://localhost:' + port + '/api/v1/courts/:id',
-		users: 'http://localhost:' + port + '/api/v1/users',
-		user: 'http://localhost:' + port + '/api/v1/users/:id',
-		cities: 'http://localhost:' + port + '/api/v1/cities',
-		city: 'http://localhost:' + port + '/api/v1/cities/:id'
+		court: 'http://localhost:' + port + '/api/v1/courts/:id'
+		// users: 'http://localhost:' + port + '/api/v1/users',
+		// user: 'http://localhost:' + port + '/api/v1/users/:id',
+		// cities: 'http://localhost:' + port + '/api/v1/cities',
+		// city: 'http://localhost:' + port + '/api/v1/cities/:id'
 
 	}]
 }
@@ -57,29 +57,29 @@ app.get('/api/v1', function(req, res){
 
 var base = '/api/v1';
 
-app.get(base + '/users', routes.users.showall);
-app.post(base + '/users', routes.users.create);
-app.put(base + '/users/:user_id', routes.users.update);
-app.delete(base + '/users/:user_id', routes.users.destroy);
-app.get(base + '/users/:user_id', routes.users.show);
+// app.get(base + '/users', routes.users.showall);
+// app.post(base + '/users', routes.users.create);
+// app.put(base + '/users/:user_id', routes.users.update);
+// app.delete(base + '/users/:user_id', routes.users.destroy);
+// app.get(base + '/users/:user_id', routes.users.show);
 
 app.get(base + '/games', routes.games.showall);
 app.post(base + '/games', routes.games.create);
-app.put(base + '/games/:game_id', routes.games.update);
-app.delete(base + '/games/:game_id', routes.games.destroy);
+// app.put(base + '/games/:game_id', routes.games.update);
+// app.delete(base + '/games/:game_id', routes.games.destroy);
 app.get(base + '/games/:game_id', routes.games.show);
 
 app.get(base + '/courts', routes.courts.showall);
 app.post(base + '/courts', routes.courts.create);
-app.put(base + '/courts/:court_id', routes.courts.update);
-app.delete(base + '/courts/:court_id', routes.courts.destroy);
+// app.put(base + '/courts/:court_id', routes.courts.update);
+// app.delete(base + '/courts/:court_id', routes.courts.destroy);
 app.get(base + '/courts/:court_id', routes.courts.show);
 
-app.get(base + '/cities', routes.cities.showall);
-app.post(base + '/cities', routes.cities.create);
-app.put(base + '/cities/:city_id', routes.cities.update);
-app.delete(base + '/cities/:city_id', routes.cities.destroy);
-app.get(base + '/cities/:city_id', routes.cities.show);
+// app.get(base + '/cities', routes.cities.showall);
+// app.post(base + '/cities', routes.cities.create);
+// app.put(base + '/cities/:city_id', routes.cities.update);
+// app.delete(base + '/cities/:city_id', routes.cities.destroy);
+// app.get(base + '/cities/:city_id', routes.cities.show);
 
 app.use(function(req, res) {
      res.status(404).send('404: Page not Found');
