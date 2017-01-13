@@ -15,10 +15,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(function(req,res,next){
-	res.header('Access-Control-Origin','*');
-	// res.header('Access-Control-Allow-Origin', 'http://sport-radar-front-end.herokuapp.com');
-	res.header('Access-Control-Allow-Origin', '*');
-	res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE,OPTIONS');
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Request-Headers", "*");
+	res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+	res.header("Access-Control-Allow-Credentials", "true");
+	// res.header('Access-Control-Origin','*');
+	// // res.header('Access-Control-Allow-Origin', 'http://sport-radar-front-end.herokuapp.com');
+	// res.header('Access-Control-Allow-Origin', '*');
+	// res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE,OPTIONS');
 	next();
 })
 
@@ -65,6 +70,8 @@ var base = '/api/v1';
 
 app.get(base + '/games', routes.games.showall);
 app.post(base + '/games', routes.games.create);
+app.options(base + '/games', function(req,res,next){next();});
+
 // app.put(base + '/games/:game_id', routes.games.update);
 // app.delete(base + '/games/:game_id', routes.games.destroy);
 app.get(base + '/games/:game_id', routes.games.show);
