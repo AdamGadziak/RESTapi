@@ -11,18 +11,46 @@ var Court = new Schema({
     type: String,
     required: true,
     validate: [ function(description) {
-      return description.length >=12; 
+      if (description.length <120 || description.length >=12) {
+        return true;
+      }
+      return false; 
     },
-    'Description should be longer'
+    'Description should be from 12 to 120 char length'
+    ]
+  },
+  name: {
+    type: String,
+    required: true,
+    validate: [ function(name) {
+      return name.length >=3; 
+    },
+    'Name should be longer'
     ]
   },
   lng: {
     type: Number,
     required: true,
+    validate: [ function(lng) {
+      if (+lng <= 180 || +lng >= -180) {
+        return true;
+      }
+      return false; 
+    },
+    'provide correct longitude'
+    ]
   },
   lat: {
     type: Number,
     required: true,
+    validate: [ function(lat) {
+      if (+lat <= 90 || +lat >= -90) {
+        return true;
+      }
+      return false; 
+    },
+    'provide correct latitude'
+    ]
   },
   thumbnail: {
     type:String,
