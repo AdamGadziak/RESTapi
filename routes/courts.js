@@ -29,6 +29,11 @@ exports.show = function(req, res) {//deleting populate
 };
 //POST COURT
 exports.create = function(req, res) {
+  if (!req.user || !req.user.isEmailVerified) {
+    return res.status(401).json({
+      message: 'Permission Denied! Please verify Your email'
+    });
+  }
   var court = new Court(req.body);
 
     court.save(function(err) {
