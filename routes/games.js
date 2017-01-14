@@ -33,6 +33,11 @@ exports.show = function(req, res) {
 };
 //POST GAME
 exports.create = function(req, res) {
+  if (!req.user || !req.user.isEmailVerified) {
+    return res.status(401).json({
+      message: 'Permission Denied! Please verify Your email'
+    });
+  }
   var game = new Game(req.body);
 
     game.save(function(err) {

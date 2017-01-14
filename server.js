@@ -3,6 +3,7 @@ var morgan = require('morgan');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var app = express();
+var jwt = require('jsonwebtoken');
 
 var port = Number(process.env.PORT || 3333);
 
@@ -26,6 +27,27 @@ app.use(function(req,res,next){
 	// res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE,OPTIONS');
 	next();
 })
+
+//middleware that checks if JWT token exists and verifies it if it does exist.
+//In all the future routes, this helps to know if the request is authenticated or not.
+app.use(function(req, res, next) {
+  // check header or url parameters or post parameters for token
+  var token = req.body['auth'];
+  if (!token) return next();
+
+  jwt.verify(token, process.env.JWT_SECRET, function(err, user) {
+    if (err) {
+      return res.status(401).json({
+        success: false,
+        message: 'Please register, Log in using, or validate Your email to add games'
+      });
+    } else {
+      req.user = user;
+      next();
+    }
+  });
+
+});
 
 var City = require('./models/city');
 var Court = require('./models/court');
