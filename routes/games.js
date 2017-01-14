@@ -2,11 +2,16 @@ var mongoose = require('mongoose'),
     Game = mongoose.model('Game');
 //GET ALL GAMES
 exports.showall = function(req, res, next) {
-  var query = {};
+  var query = {},
+    sort = 1;
   if (req.query.court) {
     query.court = req.query.court;
   }
-  Game.find(query).populate('city court').exec(function(err, games) {
+  if (req.query.sort) {
+    sort = req.query.sort;
+  }
+
+  Game.find(query).populate('city court').sort({date: sort}).exec(function(err, games) {
       // if there is an error retrieving, send the error. nothing after res.send(err) will execute
       if (err){
                 console.log(err);
